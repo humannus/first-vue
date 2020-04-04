@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <h1>Vue Select</h1>
-    <v-select v-model="selected" :options="options"></v-select>
+    <v-select v-model="selected_country" :options="countries"></v-select>
     <button
             class="select"
-            :disabled="!selected"
+            :disabled="!selected_country"
             @click="select"
         >
-            Select country
+            Send form
     </button>
   </div>
 </template>
@@ -19,23 +19,24 @@ export default {
     name: 'app',
     data() {
       return { 
-          options: ["Poland","England"],
+          countries: ["Poland","England"],
           momentsSDK: null,
           selected: null  
         }
     },
     methods: {
         select () {
-            if (!this.selected || !this.momentsSDK) {
+            if (!this.selected_country || !this.momentsSDK) {
                 return
             }
-            this.momentsSDK.sendMessage({ text: this.selected })
+            this.momentsSDK.setAttributes({ country: selected_country, source: "Organic" });
+            this.momentsSDK.sendMessage({ text: "Processing..." })
             this.momentsSDK.close()
         }
     },
     async created () {
         createMomentsSDK({
-            title: 'Date picker',
+            title: 'Online form',
         }).then(momentsSDK => {
             this.momentsSDK = momentsSDK
         })
@@ -61,6 +62,7 @@ h1 {
 }
 
 #app {
+  width: 100%;
   max-width: 30em;
   margin: 1em auto;
 }
