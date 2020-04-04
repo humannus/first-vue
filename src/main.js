@@ -10,7 +10,7 @@ Vue.component('v-select', vSelect)
 new Vue({
   el: '#app',
   data: {
-    options: []
+    selected_country: []
   },
   render: h => h(App)
 })

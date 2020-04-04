@@ -21,7 +21,7 @@ export default {
       return { 
           countries: ["Poland","England"],
           momentsSDK: null,
-          selected: null  
+          selected_country: null  
         }
     },
     methods: {
