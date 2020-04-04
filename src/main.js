@@ -9,8 +9,5 @@ Vue.component('v-select', vSelect)
 
 new Vue({
   el: '#app',
-  data: {
-    countries: []
-  },
   render: h => h(App)
 })
