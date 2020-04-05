@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div class="mt-3">
+    <div class="mt-0">
         <b-card-group deck>
-            <b-card bg-variant="light" header="Online Form" class="text-center">
+            <b-card bg-variant="light" class="text-center">
                 <b-card-text>
                     <h3 class="pt-3">Select country:</h3>
                     <v-select class="pt-1" v-model="selected_country" :options="country_options"></v-select>
@@ -65,8 +65,4 @@ export default {
         text-rendering: optimizelegibility
         -moz-osx-font-smoothing: grayscale
         -moz-text-size-adjust: none
-
-    #app 
-        width: 99%
-        margin: 1em auto
 </style>
