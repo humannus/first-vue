@@ -1,27 +1,24 @@
 <template>
   <div id="app">
     <div class="mt-0">
-        <b-card-group deck>
-            <b-card bg-variant="light" class="text-center">
-                <b-card-text>
-                    <h3 class="pt-3">Select country:</h3>
-                    <v-select class="pt-1" v-model="selected_country" :options="country_options"></v-select>
+        <b-card bg-variant="light" class="text-center">
+            <b-card-text>
+                <h3 class="mt-3 font-weight-normal">Select country:</h3>
+                <v-select class="pt-1 select" v-model="selected_country" :options="country_options"></v-select>
 
-                    <h3 class="pt-4">Select language:</h3>
-                    <v-select class="pt-1" v-model="selected_language" :options="language_options"></v-select>
-                    <b-button
-                            class="mt-5 select"
-                            block
-                            variant="primary"
-                            :disabled="!selected_country || !selected_language"
-                            @click="select"
-                        >
-                            Send form 👉
-                    </b-button>
-                    <country-select />
-                </b-card-text>
-            </b-card>
-        </b-card-group>
+                <h3 class="pt-4 font-weight-normal">Select language:</h3>
+                <v-select class="pt-1 select" v-model="selected_language" :options="language_options"></v-select>
+                <b-button
+                        class="mt-5 display-4 btn-lg"
+                        block
+                        variant="primary"
+                        :disabled="!selected_country || !selected_language"
+                        @click="select"
+                    >
+                        Send form 👉
+                </b-button>
+            </b-card-text>
+        </b-card>
     </div>
   </div>
 </template>
@@ -46,13 +43,13 @@ export default {
                 return
             }
             this.momentsSDK.setAttributes({ selected_country: this.selected_country, selected_language: this.selected_language});
-            this.momentsSDK.sendMessage({ text: "Processing..." })
+            this.momentsSDK.sendMessage({ text: "⚙️ Processing..." })
             this.momentsSDK.close()
         }
     },
     async created () {
         createMomentsSDK({
-            title: 'Online Form',
+            title: '📝 Online Form',
         }).then(momentsSDK => {
             this.momentsSDK = momentsSDK
         })
@@ -61,7 +58,7 @@ export default {
 </script>
 
 <style lang="sass">
-    body 
+    body
         text-rendering: optimizelegibility
         -moz-osx-font-smoothing: grayscale
         -moz-text-size-adjust: none
