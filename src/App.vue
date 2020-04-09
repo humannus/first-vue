@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="mt-0">
-        <b-card bg-variant="light" class="text-center">
+        <b-card class="text-center">
             <b-card-text>
                 <h5 class="mt-3 font-weight-normal">What's your country?</h5>
                 <v-select class="pt-1" v-model="country" :options="countryList"></v-select>
@@ -13,7 +13,7 @@
                 <input class="pt-1 t-input" v-model.number="volume" style="width: 100%;" type="number">
 
                 <b-button
-                        class="mt-5 display-4 btn-md"
+                        class="mt-4 display-4 btn-md"
                         block
                         variant="primary"
                         :disabled="!country || !industry || !volume"
@@ -72,6 +72,5 @@ export default {
         -moz-osx-font-smoothing: grayscale
         -moz-text-size-adjust: none
     .t-input
-        background-color: #f8f9fa
         border: 1px solid rgba(60,60,60,.26)
 </style>
