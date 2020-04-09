@@ -42,4 +42,5 @@ export default [
 'Sweden',
 'Uruguay',
 'Wales',
+'Other'
  ];
