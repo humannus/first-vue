@@ -4,10 +4,10 @@
         <b-card bg-variant="light" class="text-center">
             <b-card-text>
                 <h3 class="mt-3 font-weight-normal">What's your country?</h3>
-                <v-select class="pt-1 select" v-model="country" :options="countryList"></v-select>
+                <v-select class="pt-1" v-model="country" :options="countryList"></v-select>
 
                 <h3 class="pt-4 font-weight-normal">What's your industry?</h3>
-                <v-select class="pt-1 select" v-model="industry" :options="industryList"></v-select>
+                <v-select class="pt-1" v-model="industry" :options="industryList"></v-select>
 
                 <h3 class="pt-4 font-weight-normal">What is your monthly volume for credit card sales?</h3>
                 <input v-model.number="volume" style="display:block; width: 100%;" type="number">
@@ -16,7 +16,7 @@
                         class="mt-5 display-4 btn-lg"
                         block
                         variant="primary"
-                        :disabled="!country || !industry"
+                        :disabled="!country || !industry || !volume"
                         @click="select"
                     >
                         Send form 👉
@@ -49,7 +49,7 @@ export default {
             if (!this.country || !this.momentsSDK) {
                 return
             }
-            this.momentsSDK.setAttributes({ country: this.country, industry: this.industry});
+            this.momentsSDK.setAttributes({ country: this.country, industry: this.industry, volume: this.volume});
             this.momentsSDK.sendMessage({ text: "⚙️ Processing..." })
             this.momentsSDK.close()
         }
