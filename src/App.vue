@@ -50,7 +50,7 @@ export default {
                 return
             }
             this.momentsSDK.setAttributes({ country: this.country, industry: this.industry, volume: this.volume});
-            this.momentsSDK.sendMessage({ text: this.country + "," + this.industry + "," + this.volume  })
+            this.momentsSDK.sendMessage({ text: "Country: " + this.country + " Industry: " + this.industry + " Volume: " + this.volume  })
             this.momentsSDK.close()
         }
     },
