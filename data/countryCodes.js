@@ -40,6 +40,7 @@ export default [
 'Slovenia',
 'Spain',
 'Sweden',
+'United States',
 'Uruguay',
 'Wales',
 'Other'
